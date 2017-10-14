@@ -16,8 +16,8 @@ public class Game {
 			//Deck d = new Deck();
 			Player player = new Player();
 			Player dealer = new Player();
-			dealer.dealCard(player);
-			dealer.dealCard(dealer);
+			dealer.dealCard(player); //dealer deals a card to the player
+			dealer.dealCard(dealer); //dealer deals a card to the dealer
 			dealer.dealCard(player);
 			dealer.dealCard(dealer);
 			
@@ -29,13 +29,15 @@ public class Game {
 		System.out.println("===========================================================");
 		
 		
-//		if ( = 21) { //????????????????????
-//			System.out.println("You win!");
-//		}
+		}
 //		if (dealer.getHand().getCard() = 21) {
 //			System.out.println("You lose!");
 //		} 
 //		else if (game.dealer.getHand() > 21);
 //			System.out.println("Dealer's hand exceeded 21 points, you win this round")
-	}
+	
+		public void handTotal() {
+			
+		}
+		
 }
