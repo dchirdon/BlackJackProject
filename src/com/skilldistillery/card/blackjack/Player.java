@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Player {
 	Hand hand = new Hand(); //The player HAS A hand
-	Deck deck = new Deck();
+	static Deck deck = new Deck();
 	
 	
 	public Player(){ //creates a no-arg constructor
@@ -14,9 +14,12 @@ public class Player {
 	public List<Card> getHand() { //Hand creates an individual hand
 		return hand.getHand();
 	}
-	public Card dealCard() {
-		return deck.getCard();
+	public void dealCard(Player p) {
+		Card c = deck.getCard();
+		p.hand.addCard(c);
+		//return c;
 	}
+	
 
 	@Override
 	public String toString() {

@@ -11,6 +11,7 @@ public class Hand {
 	public List<Card> getHand() {
 		return hand;
 	}
+	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
