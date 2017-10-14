@@ -44,4 +44,9 @@ public class Card {
             return false;
         return true;
     }
+
+    int value = 0;
+    public int getValue() {
+		return value;
+	}
 }

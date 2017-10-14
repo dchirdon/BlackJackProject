@@ -8,11 +8,10 @@ import java.util.List;
 //import cards.Suit;
 
 public class Deck {
-	List<Card> deck = new ArrayList<>(52);
+	static List<Card> deck = new ArrayList<>(52);
 
 	//int numberOfCardsDealt;
-
-	public void originalDeck() {
+	public Deck() {
 		int counter = 1;
 		for (Rank rank : Rank.values()) { //copy pasted from Card/Deck examples, then figured out how to assign values to face cards and the ace
 			for (Suit suit : Suit.values()) {
@@ -29,6 +28,17 @@ public class Deck {
 		Collections.shuffle(deck); //Shuffles the deck
 
 	}
+
+	public Card getCard() {
+		Card card = deck.get(0);
+		deck.remove(0);
+		return card;	
+	}
+
+	public void dealCard(Player dealer) { //auto generated becasue d.dealCard(); in Game was broken
+		// TODO Auto-generated method stub
+		
+}
 
 	
 
