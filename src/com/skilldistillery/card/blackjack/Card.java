@@ -5,7 +5,7 @@ public class Card {
     private Suit suit;
     private int value;
 
-    public Card(Rank r, Suit s) { //Constructor
+   public Card(Rank r, Suit s) { //Constructor
         rank = r;
         suit = s;
     }
@@ -64,6 +64,6 @@ public class Card {
 	}
 
     public int getValue() {
-		return value;
+		return rank.getValue(); //The missing piece!!!!! this link assigned values from Rank to eah card
 	}
 }

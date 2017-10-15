@@ -12,16 +12,14 @@ public class Deck {
 
 	// int numberOfCardsDealt;
 	public Deck() {
-		for (Rank rank : Rank.values()) { // copy pasted from Card/Deck examples, then figured out how to assign values
-											// to face cards and the ace
+		for (Rank rank : Rank.values()) { // copy pasted from Card/Deck examples, then figured out how to assign values											// to face cards and the ace
 			for (Suit suit : Suit.values()) {
-
 				deck.add(new Card(rank, suit)); // Assigns the Ace a value because there is no card with a value of 1
-												// //assigns the remaining face cards a value of 10
+												//assigns the remaining face cards a value of 10
+	
 			}
-
-		}
 		Collections.shuffle(deck); // Shuffles the deck
+	}
 	}
 
 	public Card getCard() {
@@ -30,7 +28,7 @@ public class Deck {
 		return card;
 	}
 
-	public void dealCard(Player dealer) { // auto generated becasue d.dealCard(); in Game was broken
+	public void dealCard(Player dealer) { // auto generated because d.dealCard(); in Game was broken
 		// TODO Auto-generated method stub
 
 	}

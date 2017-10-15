@@ -22,7 +22,7 @@ public class Game {
 
 		dealer.dealCard(player); // dealer deals a card to the player
 		dealer.dealCard(dealer); // dealer deals a card to the dealer
-		dealer.dealCard(player);
+		dealer.dealCard(player); //deals second card to eh player (or third card from the deck)
 		dealer.dealCard(dealer);
 
 		System.out.println("==============================BEGIN GAME=============================");
@@ -31,29 +31,29 @@ public class Game {
 		System.out.println("Cards dealt to the dealer: " + dealer.getHand());
 		System.out.println("=====================================================================");
 
-		if (game.handTotal(player) == 21) {
+		if (game.total(player) == 21) {
 			System.out.println("you win!");
 		}
 		System.out.println();
-		if (game.handTotal(dealer) == 21) {
+		if (game.total(dealer) == 21) {
 			System.out.println("Dealer wins");
-		} else if (game.handTotal(dealer) > 21) {
+		} else if (game.total(dealer) > 21) {
 			System.out.println("Dealer goes over 21, you win this round.");
 		}
-		game.userPlay(game, player, dealer, d);
+		game.playGame(game, player, dealer, d);
 	}
 
-	public void userPlay(Game game, Player player, Player dealer, Deck deck) {
+	public void playGame(Game game, Player player, Player dealer, Deck deck) {
 		Scanner kb = new Scanner(System.in);
 		String input = "";
-		boolean keepPlaying = true;
-		boolean playerKeepPlaying = true;
+		boolean keepPlaying = true; //Game continues while true
+		boolean playerKeepPlaying = true; //Game 
 		boolean dealerKeepPlaying = true;
 
-		while (keepPlaying == true && game.handTotal(player) != 21 && game.handTotal(dealer) != 21) {
+		while (keepPlaying == true && game.total(player) != 21 && game.total(dealer) != 21) {
 
 			while (playerKeepPlaying) {
-				if (game.handTotal(player) < 21 && game.handTotal(dealer) < 21) {
+				if (game.total(player) < 21 && game.total(dealer) < 21) {
 					System.out.println("Hit/stay?");
 					input = kb.next();
 					if (input.equals("hit")) {
@@ -63,67 +63,68 @@ public class Game {
 						for (Card newPlayerCard : player.getHand()) {
 							System.out.println(newPlayerCard);
 						}
-						System.out.println("Total: " + game.handTotal(player));
+						System.out.println("Total: " + game.total(player));
 						System.out.println("=====================================================================");
 					}
 					if (input.equals("stay")) {
 						playerKeepPlaying = false;
 					}
-				} else if (game.handTotal(player) == 21) {
+				} else if (game.total(player) == 21) {
 					System.out.println("BlackJack!");
 					playerKeepPlaying = false;
 					dealerKeepPlaying = false;
 					keepPlaying = false;
-				} else if (game.handTotal(player) > 21) {
-					System.out.println("Busted!");
+				} else if (game.total(player) > 21) {
+					System.out.println("Over 21 - you lose");
 					playerKeepPlaying = false;
 					dealerKeepPlaying = false;
 					keepPlaying = false;
 				}
+				kb.close();
 			}
 			while (dealerKeepPlaying) {
-				if (game.handTotal(dealer) <= 16) {
+				if (game.total(dealer) <= 16) {
 					Card dealtCard = dealer.dealCard(dealer);
 					System.out.println("Dealer gets new card: " + dealtCard);
-					System.out.println("Dealer's hand is now: " + game.handTotal(dealer));
+					System.out.println("Dealer's hand is now: " + game.total(dealer));
 					System.out.println("======================================================================");
-				} else if (game.handTotal(dealer) > 21) {
-					System.out.println("Dealer busts");
+				} else if (game.total(dealer) > 21) {
+					System.out.println("Dealer busts (over 21)");
 					dealerKeepPlaying = false;
 					keepPlaying = false;
 				} else {
 					dealerKeepPlaying = false;
 				}
 			}
-			if (handTotal(player) < 21 && handTotal(dealer) < 21) {
+			if (total(player) < 21 && total(dealer) < 21) {
 				Winner(player, dealer);
 			}
 			// else if (handTotal(player) == 21 && handTotal(dealer) != 21) {
 			// System.out.println("You win!");
 			// }
-			else if (handTotal(player) != 21 && handTotal(dealer) == 21) {
+			else if (total(player) != 21 && total(dealer) == 21) {
 				System.out.println("Dealer has blackjack");
-			} else if (handTotal(player) == 21 && handTotal(dealer) == 21) {
+			} else if (total(player) == 21 && total(dealer) == 21) {
 				System.out.println("Tie game");
 			}
 			keepPlaying = false;
 		}
 	}
 
-	public double handTotal(Player player) { 
-		double handTotal = 0;
+	public double total(Player player) { 
+		double total = 0;
 		for (Card dealtCard : player.getHand()) {
-			handTotal = handTotal + dealtCard.getValue();
-			System.out.println(handTotal); //Test sysout -- can be deleted
-			System.out.println(dealtCard); //Test sysout -- can be deleted
+			total = total + dealtCard.getValue();
+			//System.out.println(handTotal); //Test sysout -- can be deleted
+			//System.out.println(dealtCard); //Test sysout -- can be deleted
 		}
-		return handTotal;
+		return total;
 	}
 
 	public void Winner(Player player, Player dealer) {
-		if (handTotal(player) < handTotal(dealer) && handTotal(dealer) != 21) {
+		if (total(player) < total(dealer) && total(dealer) != 21) {
 			System.out.println("Dealer wins this round");
-		} else if (handTotal(dealer) < handTotal(player)) {
+		} else if (total(dealer) < total(player)) {
 			System.out.println("You win!!!");
 		} else {
 			System.out.println("Tie game");

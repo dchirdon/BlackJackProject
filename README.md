@@ -10,3 +10,5 @@
 **The player always has a choice to hit or stay. Their turn ultimately ends when they hold or their hand exceed 21. The player automatically wins if they hit 21. 
 
 **Finally, if both player and dealer end on an equal hand, the hand "pushes" and it results in a tie. 
+
+**The program must be re-run after each round. 
