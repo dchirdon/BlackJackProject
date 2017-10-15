@@ -66,7 +66,7 @@ public class Game {
 						System.out.println("Total: " + game.handTotal(player));
 						System.out.println("=====================================================================");
 					}
-					if (input.equalsIgnoreCase("Stay")) {
+					if (input.equals("stay")) {
 						playerKeepPlaying = false;
 					}
 				} else if (game.handTotal(player) == 21) {
