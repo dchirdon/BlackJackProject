@@ -21,10 +21,11 @@ public class Hand {
 		builder.append("]");
 		return builder.toString();
 	}
-	public int AssignCardValues() {
-		int value = 0;
-		for (int i = 0; 0 < hand.size(); i++);
-		value += hand.get(i).getRank().getValue();
-		return value;
-	}
+//	public int AssignCardValues() {
+//		int value = 0;
+//		for (int i = 0; 0 < hand.size(); i++);
+//		value += hand.get(i).getRank();
+//		return value;
+//	}
+	
 }

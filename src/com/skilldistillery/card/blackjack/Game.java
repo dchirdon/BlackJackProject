@@ -102,7 +102,7 @@ public class Game {
 			// System.out.println("You win!");
 			// }
 			else if (handTotal(player) != 21 && handTotal(dealer) == 21) {
-				System.out.println("Dealer hits BlackJack");
+				System.out.println("Dealer has blackjack");
 			} else if (handTotal(player) == 21 && handTotal(dealer) == 21) {
 				System.out.println("Tie game");
 			}
@@ -110,19 +110,21 @@ public class Game {
 		}
 	}
 
-	public double handTotal(Player player) {
+	public double handTotal(Player player) { 
 		double handTotal = 0;
 		for (Card dealtCard : player.getHand()) {
 			handTotal = handTotal + dealtCard.getValue();
+			System.out.println(handTotal); //Test sysout -- can be deleted
+			System.out.println(dealtCard); //Test sysout -- can be deleted
 		}
 		return handTotal;
 	}
 
 	public void Winner(Player player, Player dealer) {
-		if (handTotal(player) > handTotal(dealer) && handTotal(player) != 21) {
-			System.out.println("You win!");
-		} else if (handTotal(dealer) > handTotal(player)) {
-			System.out.println("Dealer wins");
+		if (handTotal(player) < handTotal(dealer) && handTotal(dealer) != 21) {
+			System.out.println("Dealer wins this round");
+		} else if (handTotal(dealer) < handTotal(player)) {
+			System.out.println("You win!!!");
 		} else {
 			System.out.println("Tie game");
 		}
