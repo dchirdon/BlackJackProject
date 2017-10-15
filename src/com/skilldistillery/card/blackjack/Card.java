@@ -3,20 +3,21 @@ package com.skilldistillery.card.blackjack;
 public class Card {
     private Rank rank;
     private Suit suit;
+    private int value;
 
     public Card(Rank r, Suit s) { //Constructor
         rank = r;
         suit = s;
     }
 
-    public Card(Rank r, Suit s, int i) { //int i is the value of the card
+    public Card(Rank r, Suit s, int value) { //int i is the value of the card
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
     public String toString() {
-        return (rank + " of " + suit);
-    }
+       return (rank + " of " + suit);
+    } 
 
     @Override
     public int hashCode() { //Taken from Card/Deck class example
@@ -44,8 +45,24 @@ public class Card {
             return false;
         return true;
     }
+    //@Override
+	public int compareTo(Card otherCard) { //ref StringComparator.java
+		int compareValues = this.rank.compareTo(otherCard.rank);
+		if (compareValues == 0) {
+			return this.suit.compareTo(otherCard.suit);
+		}
+		else {
+			return compareValues;
+		}
+    }
+    public Rank getRank() {
+		return rank;
+	}
 
-    int value = 0;
+	public Suit getSuit() {
+		return suit;
+	}
+
     public int getValue() {
 		return value;
 	}

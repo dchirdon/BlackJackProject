@@ -3,23 +3,22 @@ package com.skilldistillery.card.blackjack;
 import java.util.*;
 
 public class Player {
-	Hand hand = new Hand(); //The player HAS A hand
+	Hand hand = new Hand(); // The player HAS A hand
 	static Deck deck = new Deck();
-	
-	
-	public Player(){ //creates a no-arg constructor
-		 this.hand = new Hand(); 
+
+	public Player() { // creates a no-arg constructor
+		this.hand = new Hand();
 	}
-	
-	public List<Card> getHand() { //Hand creates an individual hand
+
+	public List<Card> getHand() { // Hand creates an individual hand
 		return hand.getHand();
 	}
-	public void dealCard(Player p) {
+
+	public Card dealCard(Player p) {
 		Card c = deck.getCard();
 		p.hand.addCard(c);
-		//return c;
+		return c;
 	}
-	
 
 	@Override
 	public String toString() {
@@ -31,5 +30,5 @@ public class Player {
 		builder.append("]");
 		return builder.toString();
 	}
-	
+
 }
