@@ -88,7 +88,7 @@ public class Game {
 					System.out.println("Dealer's hand is now: " + game.handTotal(dealer));
 					System.out.println("======================================================================");
 				} else if (game.handTotal(dealer) > 21) {
-					System.out.println("\n---Dealer busts, you win.---");
+					System.out.println("Dealer busts");
 					dealerKeepPlaying = false;
 					keepPlaying = false;
 				} else {
@@ -102,9 +102,9 @@ public class Game {
 			// System.out.println("You win!");
 			// }
 			else if (handTotal(player) != 21 && handTotal(dealer) == 21) {
-				System.out.println("---BlackJack - Dealer wins.---");
+				System.out.println("Dealer hits BlackJack");
 			} else if (handTotal(player) == 21 && handTotal(dealer) == 21) {
-				System.out.println("---Push---");
+				System.out.println("Tie game");
 			}
 			keepPlaying = false;
 		}
