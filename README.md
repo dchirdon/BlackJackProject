@@ -12,3 +12,11 @@
 **Finally, if both player and dealer end on an equal hand, the hand "pushes" and it results in a tie. 
 
 **The program must be re-run after each round. 
+
+*Difficulties - tracking each, object, their methods, method calls, constructors and assignments was by far the most difficult part of this project. 
+
+**Adding values to the cards wasn't difficult, but calling the proper getValue() method was difficult. 
+**Ace was assigned a value of 1. Future iterations of the program will include ways for the program to calculate best value of the ace's worth based on current hand
+
+*Comments
+**In-program comments were generally left in for me to go back and study the logic. 
