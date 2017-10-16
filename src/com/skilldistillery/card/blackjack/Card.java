@@ -55,13 +55,6 @@ public class Card {
 			return compareValues;
 		}
     }
-//    public Rank getRank() {
-//		return rank;
-//	}
-//
-//	public Suit getSuit() {
-//		return suit;
-//	}
 
     public int getValue() {
 		return rank.getValue(); //The missing piece!!!!! this link assigned values from Rank to eah card

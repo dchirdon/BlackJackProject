@@ -80,7 +80,6 @@ public class Game {
 					dealerKeepPlaying = false;
 					keepPlaying = false;
 				}
-				kb.close();
 			}
 			while (dealerKeepPlaying) {
 				if (game.total(dealer) <= 16) {

@@ -5,7 +5,6 @@ import java.util.*;
 public class Deck {
 	List<Card> deck = new ArrayList<>(52);
 
-	// int numberOfCardsDealt;
 	public Deck() {
 		for (Rank rank : Rank.values()) { // copy pasted from Card/Deck examples, then figured out how to assign values
 											// // to face cards and the ace
@@ -26,7 +25,6 @@ public class Deck {
 
 	public void dealCard(Player dealer) { // auto generated because d.dealCard(); in Game was broken
 		// TODO Auto-generated method stub
-
 	}
 
 }
